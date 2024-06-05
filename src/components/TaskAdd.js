@@ -3,8 +3,9 @@ import api from "../api"
 
 function TaskAdd({ onCreate }) {
     const [title, setTitle] = useState('')
+    const [error, setError] = useState('')
     const handleChange = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setTitle(event.target.value)
     }
 
@@ -21,12 +22,13 @@ function TaskAdd({ onCreate }) {
                     onCreate()
                 })
                 setTitle('')
+                setError('')
             } else {
                 throw new Error("Can't Add Empty Todo")
             }
         } catch (error) {
-            console.error(error.message);
-            alert(error.message);
+            // console.error(error.message);
+            setError(error.message);
         }
     }
 
@@ -44,7 +46,7 @@ function TaskAdd({ onCreate }) {
                 </div>
                 <input value={title} className="w-1/2 hover:bg-sky-50  rounded  bg-white border border py-2 px-4 text-xl" type="text" onChange={handleChange} />
                 <button type="submit" className="bg-green-700 mx-4 px-8 py-2 rounded text-white text-xl" > Button </button>
-
+                {error && <p className="text-red-500 mt-2 " >{error} </p>}
             </form>
 
         </div>
