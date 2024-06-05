@@ -8,7 +8,8 @@ Add New Task: Done
 
 Provide an input field and a button to add new tasks.
 The new task should be posted to the API.
-Mark Task as Completed:
+
+Mark Task as Completed: Done
 
 Allow the user to mark tasks as completed by clicking a button or checkbox.
 Update the task status on the API.
