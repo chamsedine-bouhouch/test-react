@@ -3,7 +3,7 @@
     {
       "id": "5d2f",
       "title": "delectus aut autem",
-      "completed": false,
+      "completed": true,
       "userId": 1
     },
     {
@@ -27,7 +27,7 @@
     {
       "id": "4406",
       "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-      "completed": false,
+      "completed": true,
       "userId": 1
     }
   ]

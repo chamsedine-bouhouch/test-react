@@ -26,11 +26,11 @@ function TaskList() {
         }
     }
 
-    const renderedTodos = todos.map((todo) => {
+    const renderedTodos = todos.length > 0 ? todos.map((todo) => {
         return (
             <TaskShow key={todo.id} onUpdate={fetchTodos} todo={todo} />
         )
-    })
+    }) : 'Your todo list is empty'
 
     useEffect(() => {
         fetchTodos()
