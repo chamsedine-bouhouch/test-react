@@ -29,7 +29,7 @@ function TaskShow({ todo, onUpdate }) {
                     <div className="cursor-pointer" onClick={() => handleToggleCompleted(todo)} >
                         {todo.completed ? <span className="text-green-400" >Completed </span> : <span className="text-red-300 " >Incompleted</span>}
                     </div>
-                    <GoTrash className="mx-4 text-red-800" onClick={() => { handleDelete(todo.id) }} />
+                    <GoTrash className="mx-4 cursor-pointer text-red-800" onClick={() => { handleDelete(todo.id) }} />
                 </div>
             </div>
         </div>
