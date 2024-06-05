@@ -39,11 +39,10 @@ function TaskList() {
     );
 
     return (
-        <div className="flex flex-col">
+        <div className="grid">
             <TaskAdd onCreate={fetchTodos} />
-
-            <GoFilter onClick={handleFilter} className="text-4xl cursor-pointer my-4" />
-            <div>
+            <GoFilter onClick={handleFilter} className="justify-self-end text-4xl cursor-pointer mr-8 mt-4" />
+            <div className="mx-4">
                 {renderedTodos}
             </div>
         </div>

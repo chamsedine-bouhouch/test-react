@@ -3,7 +3,7 @@
 
 function App() {
   return (
-    <div className="mx-8">
+    <div className="">
       <TaskList />
     </div>
   );

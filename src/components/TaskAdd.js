@@ -18,7 +18,7 @@ function TaskAdd({ onCreate }) {
                     completed: false,
                     userId: 1
                 }).then(response => {
-                    // alert(JSON.stringify(response.data), 'Added')
+                    alert(JSON.stringify(response.data), 'Added')
                     onCreate()
                 })
                 setTitle('')
@@ -33,20 +33,21 @@ function TaskAdd({ onCreate }) {
     }
 
     return (
-        <div className=" bg-sky-300 p-8">
+        <div className=" bg-sky-300 px-8 py-4">
             <div className="text-2xl mb-4">
                 Add New Task
             </div>
             <form
-                className=""
                 onSubmit={handleSubmit}
             >
                 <div className="text-xl mb-2">
                     title
                 </div>
-                <input value={title} className="w-1/2 hover:bg-sky-50  rounded  bg-white border border py-2 px-4 text-xl" type="text" onChange={handleChange} />
-                <button type="submit" className="bg-green-700 mx-4 px-8 py-2 rounded text-white text-xl" > Button </button>
-                {error && <p className="text-red-500 mt-2 " >{error} </p>}
+
+                <input value={title} className="w-full hover:bg-sky-50  rounded  bg-white border border py-2 px-4 text-xl" type="text" onChange={handleChange} />
+                {error && <p className="text-red-700 mt-2 " >{error} </p>}
+                <button type="submit" className="float-right  bg-green-700 mt-4 px-8 py-2 rounded text-white text-xl" > Add </button>
+
             </form>
 
         </div>
