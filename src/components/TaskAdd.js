@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 
-function TaskAdd() {
+function TaskAdd({onCreate}) {
     const [title, setTitle] = useState('')
     const handleChange = (event) => {
         console.log(event.target.value)
@@ -9,12 +9,14 @@ function TaskAdd() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://jsonplaceholder.typicode.com/todos', {
+        axios.post('http://127.0.0.1:3001/todos', {
             title,
-            completed: true,
+            completed: false,
             userId: 1
         }).then(response => {
-            alert(JSON.stringify(response.data), 'Added')
+            // alert(JSON.stringify(response.data), 'Added')
+            onCreate()
+
         })
         setTitle('')
 
