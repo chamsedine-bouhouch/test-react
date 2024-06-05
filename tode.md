@@ -13,10 +13,12 @@ Mark Task as Completed: Done
 
 Allow the user to mark tasks as completed by clicking a button or checkbox.
 Update the task status on the API.
-Delete Task:
 
+
+Delete Task: Done
 Provide a way to delete tasks from the list.
 Remove the task from the API.
+
 Filter Tasks:
 Add a feature to filter tasks by their status (all, completed, not completed).
 
