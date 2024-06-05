@@ -7,20 +7,29 @@ function TaskAdd({ onCreate }) {
         console.log(event.target.value)
         setTitle(event.target.value)
     }
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        api.post('/todos', {
-            title,
-            completed: false,
-            userId: 1
-        }).then(response => {
-            // alert(JSON.stringify(response.data), 'Added')
-            onCreate()
-
-        })
-        setTitle('')
-
+        try {
+            if (title.length > 0) {
+                api.post('/todos', {
+                    title,
+                    completed: false,
+                    userId: 1
+                }).then(response => {
+                    // alert(JSON.stringify(response.data), 'Added')
+                    onCreate()
+                })
+                setTitle('')
+            } else {
+                throw new Error("Can't Add Empty Todo")
+            }
+        } catch (error) {
+            console.error(error.message);
+            alert(error.message);
+        }
     }
+
     return (
         <div className=" bg-sky-300 p-8">
             <div className="text-2xl mb-4">
@@ -33,7 +42,7 @@ function TaskAdd({ onCreate }) {
                 <div className="text-xl mb-2">
                     title
                 </div>
-                <input value={title} className="w-1/2 hover:bg-sky-50  rounded  bg-white border border py-2 px-4 text-xl  " type="text" onChange={handleChange} />
+                <input value={title} className="w-1/2 hover:bg-sky-50  rounded  bg-white border border py-2 px-4 text-xl" type="text" onChange={handleChange} />
                 <button type="submit" className="bg-green-700 mx-4 px-8 py-2 rounded text-white text-xl" > Button </button>
 
             </form>
