@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import { GoFilter } from "react-icons/go";
 import TaskShow from "./TaskShow";
 import TaskAdd from "./TaskAdd";
+import api from "../api";
 
 
 function TaskList() {
@@ -10,7 +10,7 @@ function TaskList() {
     const [isCompleted, setIsCompleted] = useState(true)
 
     const fetchTodos = useCallback(() => {
-        axios.get('http://127.0.0.1:3001/todos')
+        api.get('/todos')
             .then(json => {
                 setTodos(json.data)
             })
@@ -19,7 +19,7 @@ function TaskList() {
     const handleFilter = async () => {
         setIsCompleted(!isCompleted)
         try {
-            const filtredTodos = await axios.get(`http://127.0.0.1:3001/todos/?completed=${isCompleted}`)
+            const filtredTodos = await api.get(`/todos/?completed=${isCompleted}`)
             setTodos(filtredTodos.data)
         } catch (error) {
             console.error(error)
