@@ -1,7 +1,7 @@
-import axios from "axios"
 import { useState } from "react"
+import api from "../api"
 
-function TaskAdd({onCreate}) {
+function TaskAdd({ onCreate }) {
     const [title, setTitle] = useState('')
     const handleChange = (event) => {
         console.log(event.target.value)
@@ -9,7 +9,7 @@ function TaskAdd({onCreate}) {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://127.0.0.1:3001/todos', {
+        api.post('/todos', {
             title,
             completed: false,
             userId: 1

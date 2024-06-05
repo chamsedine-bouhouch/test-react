@@ -1,10 +1,10 @@
-import axios from "axios"
 import { GoTrash } from "react-icons/go"
+import api from "../api"
 
 function TaskShow({ todo, onUpdate }) {
     const handleToggleCompleted = (todo) => {
         let updatedTodo = { ...todo, completed: !todo.completed }
-        axios.put(`http://127.0.0.1:3001/todos/${todo.id}`, updatedTodo).then(response => {
+        api.put(`/todos/${todo.id}`, updatedTodo).then(response => {
             //  alert(JSON.stringify(response.data), 'Updated')
             onUpdate()
 
@@ -12,7 +12,7 @@ function TaskShow({ todo, onUpdate }) {
     }
 
     const handleDelete = (id) => {
-        axios.delete(`http://127.0.0.1:3001/todos/${id}`).then(response => {
+        api.delete(`/todos/${id}`).then(response => {
             //  alert(JSON.stringify('Todo ' + id + ' Deleted'))
             onUpdate()
         })
