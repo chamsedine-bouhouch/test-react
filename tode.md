@@ -19,7 +19,7 @@ Delete Task: Done
 Provide a way to delete tasks from the list.
 Remove the task from the API.
 
-Filter Tasks:
+Filter Tasks: Done
 Add a feature to filter tasks by their status (all, completed, not completed).
 
 

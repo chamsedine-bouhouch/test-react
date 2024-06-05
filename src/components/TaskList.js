@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
-import { GoTrash } from "react-icons/go";
+import { GoTrash, GoFilter } from "react-icons/go";
 
 
 function TaskList() {
     const [todos, setTodos] = useState([])
+    const [isCompleted, setIsCompleted] = useState(true)
 
     const fetchTodos = useCallback(() => {
         axios.get('https://jsonplaceholder.typicode.com/todos')
@@ -30,9 +31,23 @@ function TaskList() {
 
     }
 
+    const handleFilter = async () => {
+        setIsCompleted(!isCompleted)
+        console.log(isCompleted)
+        try {
+            const filtredTodos = await axios.get(`https://jsonplaceholder.typicode.com/todos/?completed=${isCompleted}`)
+            console.log(filtredTodos)
+            setTodos(filtredTodos.data)
+        } catch (error) {
+            console.error(error)
+        }
+
+
+    }
+
     const renderedTodos = todos.map((todo) => {
         return (
-            <div key={todo.id} className="mx-8 my-4">
+            <div key={todo.id} className="my-4">
                 <div className="flex justify-between bg-gray-100 p-4">
                     <div>
                         {todo.title}
@@ -56,9 +71,12 @@ function TaskList() {
     );
 
     return (
-        <>
-            {renderedTodos}
-        </>
+        <div className="flex flex-col">
+            <GoFilter onClick={handleFilter} className="text-4xl cursor-pointer my-4" />
+            <div>
+                {renderedTodos}
+            </div>
+        </div>
     )
 }
 

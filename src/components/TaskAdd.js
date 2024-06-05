@@ -20,7 +20,7 @@ function TaskAdd() {
 
     }
     return (
-        <div className=" bg-sky-300 p-8 mx-8">
+        <div className=" bg-sky-300 p-8">
             <div className="text-2xl mb-4">
                 Add New Task
             </div>

@@ -4,7 +4,7 @@ import TaskList from "./components/TaskList";
 
 function App() {
   return (
-    <div>
+    <div className="mx-8">
       <TaskAdd/>
       <TaskList />
     </div>
